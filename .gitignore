@@ -1,0 +1,7 @@
+﻿# Keep game images, extracted files, generated output, builds, saves, and logs local.
+/*
+!/.gitignore
+!/README.md
+!/docs/
+/docs/*
+!/docs/README.md
