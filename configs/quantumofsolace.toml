@@ -55,3 +55,6 @@
 
 # Observed after the adjacent 0x8233A688 virtual thunk.
 [functions."0x8233ADD0"]
+
+# Pointer-adjusting thunk reached after 0x8233ADD0.
+[functions."0x823B8370"]
