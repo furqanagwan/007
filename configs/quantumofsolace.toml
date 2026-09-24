@@ -43,3 +43,6 @@
 
 # Next observed indirect target; verify body and run before merging.
 [functions."0x8246F540"]
+
+# Observed after the 0x8246F540 entry; verify original PPC body before merge.
+[functions."0x82120C00"]
