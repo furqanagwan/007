@@ -46,3 +46,6 @@
 
 # Observed after the 0x8246F540 entry; verify original PPC body before merge.
 [functions."0x82120C00"]
+
+# Observed in both runs after registering the 0x82120C00 thunk.
+[functions."0x8233A678"]
