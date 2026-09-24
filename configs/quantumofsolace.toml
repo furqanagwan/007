@@ -40,3 +40,6 @@
 
 # Statically referenced in .rdata at 0x82097E8C beside registered methods.
 [functions."0x82485D08"]
+
+# Next observed indirect target; verify body and run before merging.
+[functions."0x8246F540"]
