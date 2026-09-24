@@ -24,3 +24,7 @@
 [functions."0x821C1C28"]
 [functions."0x821C1C30"]
 [functions."0x821C1C38"]
+
+# Indirect target seen after registering the constant-return leaf table.
+[functions."0x82462590"]
+[functions."0x82462668"]
