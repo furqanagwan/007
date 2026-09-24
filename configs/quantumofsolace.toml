@@ -52,3 +52,6 @@
 
 # Adjacent virtual-dispatch thunk observed after registering 0x8233A678.
 [functions."0x8233A688"]
+
+# Observed after the adjacent 0x8233A688 virtual thunk.
+[functions."0x8233ADD0"]
