@@ -28,3 +28,6 @@
 # Indirect target seen after registering the constant-return leaf table.
 [functions."0x82462590"]
 [functions."0x82462668"]
+
+# Validity of this observed indirect target is verified during RG-007-004.
+[functions."0x824E1710"]
