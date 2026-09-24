@@ -6,6 +6,7 @@
 /docs/*
 !/docs/README.md
 !/docs/RG-007-001.md
+!/docs/RG-007-002.md
 !/configs/
 /configs/*
 !/configs/quantumofsolace.toml
