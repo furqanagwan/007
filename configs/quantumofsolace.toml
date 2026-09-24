@@ -49,3 +49,6 @@
 
 # Observed in both runs after registering the 0x82120C00 thunk.
 [functions."0x8233A678"]
+
+# Adjacent virtual-dispatch thunk observed after registering 0x8233A678.
+[functions."0x8233A688"]
