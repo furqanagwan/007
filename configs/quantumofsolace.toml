@@ -1,4 +1,4 @@
-﻿# Quantum of Solace (title 415607FF, media 06DD88A0)
+# Quantum of Solace (title 415607FF, media 06DD88A0)
 # XEX SHA-256: a96f4f651cc0937e51aa2f81245b48ba08d71de1b8bef0e33bc2b2bca29caa42
 # Indirect virtual-call target observed on two NVIDIA D3D12 boot runs.
 [functions."0x8211E798"]
@@ -24,4 +24,3 @@
 [functions."0x821C1C28"]
 [functions."0x821C1C30"]
 [functions."0x821C1C38"]
-
