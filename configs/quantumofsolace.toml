@@ -28,3 +28,15 @@
 # Indirect target seen after registering the constant-return leaf table.
 [functions."0x82462590"]
 [functions."0x82462668"]
+
+# Validity of this observed indirect target is verified during RG-007-004.
+[functions."0x824E1710"]
+
+# Next observed indirect target; PPC body must be reviewed after regeneration.
+[functions."0x824BFD00"]
+
+# Another observed indirect target in the 0x824625xx method region.
+[functions."0x82462650"]
+
+# Statically referenced in .rdata at 0x82097E8C beside registered methods.
+[functions."0x82485D08"]
