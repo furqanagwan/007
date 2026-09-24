@@ -34,3 +34,6 @@
 
 # Next observed indirect target; PPC body must be reviewed after regeneration.
 [functions."0x824BFD00"]
+
+# Another observed indirect target in the 0x824625xx method region.
+[functions."0x82462650"]
