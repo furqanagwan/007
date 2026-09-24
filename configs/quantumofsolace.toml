@@ -31,3 +31,6 @@
 
 # Validity of this observed indirect target is verified during RG-007-004.
 [functions."0x824E1710"]
+
+# Next observed indirect target; PPC body must be reviewed after regeneration.
+[functions."0x824BFD00"]
