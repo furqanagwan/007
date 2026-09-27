@@ -1,4 +1,4 @@
-﻿# Keep game images, extracted files, generated output, builds, saves, and logs local.
+# Keep game images, extracted files, generated output, builds, saves, and logs local.
 /*
 !/.gitignore
 !/README.md
@@ -12,3 +12,8 @@
 !/configs/
 /configs/*
 !/configs/quantumofsolace.toml
+!/assets/
+/assets/*
+!/assets/logo.svg
+!/assets/social-preview.svg
+!/assets/social-preview.png
