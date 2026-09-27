@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <!-- Original artwork for this repository; contains no game assets. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#16202b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3d27a"/>
+      <stop offset="1" stop-color="#b8892f"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1f2b38" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)" opacity="0.6"/>
+  <!-- Circuit traces -->
+  <g fill="none" stroke="#2f7fbf" stroke-width="3" opacity="0.55">
+    <path d="M0 585H220L250 555H420"/>
+    <path d="M0 615H300L320 600H520"/>
+    <path d="M1280 150H1060L1020 190H880"/>
+    <path d="M1280 110H1110L1060 60H760"/>
+  </g>
+  <g fill="#2f7fbf" opacity="0.8">
+    <circle cx="420" cy="555" r="6"/>
+    <circle cx="520" cy="600" r="6"/>
+    <circle cx="880" cy="190" r="6"/>
+    <circle cx="760" cy="60" r="6"/>
+  </g>
+  <text x="96" y="330" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="210"
+        font-weight="800" letter-spacing="10" fill="url(#gold)">007</text>
+  <rect x="100" y="360" width="520" height="6" fill="#f3d27a" opacity="0.9"/>
+  <text x="100" y="420" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="40"
+        font-weight="600" fill="#e6edf3">Xbox 360 → Windows PC</text>
+  <text x="100" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30"
+        fill="#9fb3c8">Static recompilation with ReXGlue · Direct3D 12 · GDK</text>
+  <g font-family="Consolas, Menlo, monospace" font-size="24" fill="#7ee787" opacity="0.9">
+    <text x="760" y="300">Quantum of Solace</text>
+    <text x="760" y="345" fill="#9fb3c8">Blood Stone</text>
+    <text x="760" y="390" fill="#9fb3c8">007 Legends</text>
+  </g>
+  <g font-family="Consolas, Menlo, monospace" font-size="24" fill="#58a6ff">
+    <text x="730" y="300">▸</text>
+    <text x="730" y="345">▸</text>
+    <text x="730" y="390">▸</text>
+  </g>
+</svg>
