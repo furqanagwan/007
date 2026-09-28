@@ -10,6 +10,7 @@
 !/docs/RG-007-003.md
 !/docs/RG-007-004.md
 !/docs/RG-007-006.md
+!/docs/RG-007-007.md
 !/configs/
 /configs/*
 !/configs/quantumofsolace.toml

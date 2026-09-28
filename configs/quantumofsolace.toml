@@ -1,5 +1,14 @@
 # Quantum of Solace (title 415607FF, media 06DD88A0)
 # XEX SHA-256: a96f4f651cc0937e51aa2f81245b48ba08d71de1b8bef0e33bc2b2bca29caa42
+
+# The game's CRT setjmp and longjmp (RG-007-007). The engine's error path
+# (Com_Error, for example from the "disconnect" command after a save)
+# longjmps back to the main loop. Recompiled as ordinary functions, longjmp
+# restored the saved registers but returned to its caller, which then ran on
+# the outer frame's registers and crashed. Named here, codegen emits host
+# setjmp/longjmp keyed by the guest jmp_buf instead.
+setjmp_address = 0x825ABAE0
+longjmp_address = 0x825AB7C0
 # Indirect virtual-call target observed on two NVIDIA D3D12 boot runs.
 [functions."0x8211E798"]
 
