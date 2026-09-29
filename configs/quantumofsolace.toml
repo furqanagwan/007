@@ -67,3 +67,23 @@ longjmp_address = 0x825AB7C0
 
 # Pointer-adjusting thunk reached after 0x8233ADD0.
 [functions."0x823B8370"]
+
+# Canary game-patches "Unlock FPS" by Sowa_95, for this XEX (Canary module
+# hash A29428CB1432DD9E, media 06DD88A0), copied unchanged (RG-007-008).
+# The two nops change the engine's frame timing; the byte is the low half of
+# `li r11,1` at 0x820F2280, the presentation interval (0x00 unlimited, 0x01
+# 60 FPS, 0x02 30 FPS; 0x01 is the original). Canary's warning: "FPS higher
+# than 30 can cause softlocks in certain missions." Off here; build with
+# configs/quantumofsolace-60fps.toml to switch it on.
+[[patch]]
+name = "Unlock FPS"
+enabled = false
+[[patch.be32]]
+address = 0x8229B808
+value = 0x60000000
+[[patch.be32]]
+address = 0x8229B86C
+value = 0x60000000
+[[patch.be8]]
+address = 0x820F2283
+value = 0x01
