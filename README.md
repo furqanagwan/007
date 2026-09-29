@@ -107,6 +107,10 @@ ignored. The steps use Blood Stone; substitute the row for another game.
    includes = ["../../configs/quantumofsolace.toml"]
    ```
 
+   For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
+   on Canary's "Unlock FPS" patch, which Canary warns can softlock certain
+   missions ([RG-007-008](docs/RG-007-008.md)).
+
 4. **Generate and build** against the installed SDK:
 
    ```powershell
@@ -129,9 +133,10 @@ ignored. The steps use Blood Stone; substitute the row for another game.
 ## Repository layout
 
 ```text
-assets/                      Original artwork (logo, social preview)
-configs/quantumofsolace.toml Guest function entries for Quantum of Solace codegen
-docs/RG-007-NNN.md           One record per issue: goal, evidence, result
+assets/                            Original artwork (logo, social preview)
+configs/quantumofsolace.toml       Quantum of Solace codegen: function entries, patches
+configs/quantumofsolace-60fps.toml The same with the 60 FPS patch switched on
+docs/RG-007-NNN.md                 One record per issue: goal, evidence, result
 ```
 
 Everything else in the folder is ignored (`.gitignore` is an allowlist).

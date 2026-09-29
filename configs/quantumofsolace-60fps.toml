@@ -1,0 +1,9 @@
+# Quantum of Solace at up to 60 FPS: the title configuration with Canary's
+# "Unlock FPS" patch switched on (RG-007-008). Use it in place of
+# quantumofsolace.toml in the manifest's includes. Canary warns that more than
+# 30 FPS can cause softlocks in certain missions.
+includes = ["quantumofsolace.toml"]
+
+[[patch]]
+name = "Unlock FPS"
+enabled = true
