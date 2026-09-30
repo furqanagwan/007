@@ -109,7 +109,9 @@ ignored. The steps use Blood Stone; substitute the row for another game.
 
    For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
    on Canary's "Unlock FPS" patch, which Canary warns can softlock certain
-   missions ([RG-007-008](docs/RG-007-008.md)).
+   missions ([RG-007-008](docs/RG-007-008.md)). The patch is switchable: with
+   an SDK that has the Xbox guide (RG-GDK-041), turn it on or off while playing
+   in the guide's Settings > Patches; the choice is saved.
 
 4. **Generate and build** against the installed SDK:
 
