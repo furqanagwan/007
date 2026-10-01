@@ -36,7 +36,7 @@ validated yet.
 | Media ID | `06DD88A0` |
 | Executable | `default.xex` v7 |
 | XEX SHA-256 | `a96f4f651cc0937e51aa2f81245b48ba08d71de1b8bef0e33bc2b2bca29caa42` |
-| Title update | None applied. Title update 2 exists for this disc (on Xbox Unity); title update support is in progress in the SDK ([rexglue-sdk#153](https://github.com/furqanagwan/rexglue-sdk/issues/153)). |
+| Title update | None applied. Title update 2 exists for this disc (Xbox Unity) and is listed in the guide's Games & Apps > Title Updates, where it's optional ([title updates](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/title-updates.md)). It can be downloaded there, but the update's own executable isn't built yet: it needs its own function entries, so the guide shows it as Not in Build. |
 
 Check that your disc's title and media IDs match: the recompiled code is only
 valid for this executable.
