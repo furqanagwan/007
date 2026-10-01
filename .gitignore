@@ -12,10 +12,12 @@
 !/docs/RG-007-006.md
 !/docs/RG-007-007.md
 !/docs/RG-007-008.md
+!/docs/RG-007-010.md
 !/configs/
 /configs/*
 !/configs/quantumofsolace.toml
 !/configs/quantumofsolace-60fps.toml
+!/configs/legends.toml
 !/assets/
 /assets/*
 !/assets/logo.svg

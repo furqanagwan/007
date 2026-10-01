@@ -99,13 +99,16 @@ ignored. The steps use Blood Stone; substitute the row for another game.
    rexglue init --project-name bloodstone --xex-path "Blood Stone/game/default.xex" --game-root "Blood Stone/game" --project-root "Blood Stone/recompiled"
    ```
 
-3. **Quantum of Solace only: add its title configuration** to the entry
-   point's `includes` in `quantumofsolace_manifest.toml`. The path is relative
-   to that file:
+3. **Quantum of Solace and 007 Legends: add the title configuration** to the
+   entry point's `includes` in the manifest. The path is relative to that file:
 
    ```toml
-   includes = ["../../configs/quantumofsolace.toml"]
+   includes = ["../../configs/quantumofsolace.toml"]   # quantumofsolace_manifest.toml
+   includes = ["../../configs/legends.toml"]           # legends_manifest.toml
    ```
+
+   Both carry switchable cheats from the Aurora trainer pack, turned on and off
+   in the Xbox guide's Settings > Cheats ([RG-007-010](docs/RG-007-010.md)).
 
    For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
    on Canary's "Unlock FPS" patch, which Canary warns can softlock certain
