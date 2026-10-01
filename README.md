@@ -111,6 +111,10 @@ ignored. The steps use Blood Stone; substitute the row for another game.
    in the Xbox guide's Settings > Mods ([RG-007-010](docs/RG-007-010.md)).
    007 Legends also lists its own cheat codes, the ones typed in at Extras >
    Cheat Codes, under Settings > Cheats ([RG-007-011](docs/RG-007-011.md)).
+   Their marketplace add-ons (the SKYFALL Content Pack and two character skins
+   for 007 Legends, the Camille Map Pack for Quantum of Solace) are listed in
+   Games & Apps > Manage Game, installed from packages on this PC
+   ([RG-007-012](docs/RG-007-012.md)).
 
    For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
    on Canary's "Unlock FPS" patch, which Canary warns can softlock certain

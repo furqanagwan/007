@@ -154,3 +154,12 @@ address = 0x82233698
 register = "r11"
 value = 0
 lr = 0x82233484
+
+# Add-ons in the Xbox 360 marketplace (catalog.xboxlive.com, en-GB; found with
+# `rexglue dlc-find 415607FF`). The Camille Map Pack is four multiplayer maps.
+# Whether it needs title update 2 (TitleUpdateID 22386 on Xbox Unity, which
+# patches default.xex, default_mp.xex and patch_mp.ff) is not established, so
+# requires_title_update is not set.
+
+[[dlc]]
+id = "00000000-0000-400C-80CF-0001415607FF"  # The Camille Map Pack
