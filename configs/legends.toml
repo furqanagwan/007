@@ -122,3 +122,17 @@ name = "Skyfall Pack"
 code = "l3g3nds"
 description = "The Skyfall mission, Eve, Patrice, the Kowloon T-100 and the Tactical FSR in multiplayer."
 where = "Extras > Cheat Codes"
+
+# Add-ons in the Xbox 360 marketplace (catalog.xboxlive.com, en-GB; found with
+# `rexglue dlc-find 415608D8`). The build fetches their names, descriptions
+# and art for the guide's Manage Game page. 007 Legends has no title update, so
+# none needs one.
+
+[[dlc]]
+id = "D4C83E1F-243B-4A68-AD70-ABF3C0FBF372"  # SKYFALL Content Pack (free)
+
+[[dlc]]
+id = "A492C3E9-105C-41DD-9CD8-4977A615655A"  # Eve Character Skin
+
+[[dlc]]
+id = "30621358-F254-48C1-B607-B6AA7DAACC33"  # Patrice Character Skin
