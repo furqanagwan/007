@@ -2,174 +2,93 @@
 
 # 007 — Xbox 360 recompilation
 
-The Xbox 360 James Bond games, statically recompiled to native Windows PC
-executables with [ReXGlue](https://github.com/furqanagwan/rexglue-sdk):
-Direct3D 12 rendering, native input and audio, and an optional Microsoft GDK
-build.
+The Xbox 360 James Bond games, statically recompiled into native Windows PC
+games with [ReXGlue](https://github.com/furqanagwan/rexglue-sdk): Direct3D 12
+graphics, controller and audio support, achievements, and the Xbox 360 guide
+built in.
 
 > [!IMPORTANT]
 > This repository contains no game files. You need your own legally obtained
-> copy of each game. Disc images, extracted files, generated code, builds,
-> saves and logs stay on your machine.
+> copy of each game: the disc listed on its page, as an ISO or its extracted
+> files.
 
-## Games
+## The games
 
-| Game | Released | Disc (Redump name) | Region | Languages | Title ID | Media ID | Executable | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Quantum of Solace | 2008 · Treyarch | `007 - Quantum of Solace (USA, Europe) (En,Fr)` | USA and Europe, one disc; the XEX is region-free | English, French | `415607FF` | `06DD88A0` | `default.xex` v7, disc 1/1, no title update | **In-game** |
-| Blood Stone | 2010 · Bizarre Creations | `007 - Blood Stone (USA, Europe) (En,Fr,De)` | USA and Europe, one disc | English, French, German | `4156081F` | `42DBE473` | `default.xex` v2, disc 1/1, no title update | **Investigating** |
-| 007 Legends | 2012 · Eurocom | `007 Legends (USA, Europe) (En,Fr,De)` | USA and Europe, one disc | English, French, German | `415608D8` | `5B1FDAF8` | `Default.xex` v4, disc 1/1, no title update | **Investigating** |
+| Game | Released | Status |
+| --- | --- | --- |
+| [Quantum of Solace](Quantum%20of%20Solace/README.md) | 2008 · Treyarch | **In-game** |
+| [James Bond 007: Blood Stone](Blood%20Stone/README.md) | 2010 · Bizarre Creations | **Investigating** |
+| [007 Legends](Legends/README.md) | 2012 · Eurocom | **Investigating** |
 
-Each game's window shows the game's own name and its Xbox 360 dashboard icon.
+Each game's page has its details, the exact disc it's built from, what works,
+and its mods, cheat codes and add-ons.
 
 **Status levels:**
 
-- **Planned:** not started.
-- **Investigating:** recompiles, but doesn't reach gameplay yet.
-- **In-game:** reaches gameplay, but not validated end to end.
+- **Investigating:** recompiles, but doesn't reach gameplay yet, or hasn't
+  been recorded doing so.
+- **In-game:** reaches gameplay, but hasn't been validated end to end.
 - **Playable:** validated through the game, within the limits listed.
 
-## Quantum of Solace status
+## Download
 
-**What works** on an NVIDIA RTX 5080 Laptop GPU, with ReXGlue `main` `0d7568a`:
+No release has been published yet; the
+[Releases](https://github.com/furqanagwan/007/releases) page will have them.
+Until then, the games are built from source: see
+[docs/building.md](docs/building.md).
 
-- **Boot to the first level:** it boots from the publisher logos to the first
-  level, with textured 3D, the HUD and mission objectives.
-- **Achievements:** the first achievement unlocks.
-- **Input:** a controller works through GameInput in GDK builds, or XInput
-  otherwise. Keyboard input hasn't been confirmed.
-- **Audio:** plays through XAudio2.
-- **Soak test:** 90-second runs have zero error lines in both the standard and
-  the GDK build ([SDK baseline record](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/baseline-capture.md)).
+## How to play
 
-**Not validated yet** ([#16](https://github.com/furqanagwan/007/issues/16)):
+**You need:**
 
-- a full playthrough;
-- saving and loading;
-- visual accuracy against a real console;
-- AMD and Intel GPUs.
+- Windows 11 x64 and a Direct3D 12 GPU. Only NVIDIA has been tested so far.
+- Your own copy of the game, matching the disc on its page.
+- A controller: Xbox controllers work through GameInput or XInput. Keyboard
+  play hasn't been confirmed.
 
-**Multiplayer:** not recompiled (`default_mp.xex`).
+**Playing:**
 
-**How it got here:** the boot needed guest function entries the recompiler
-couldn't find on its own. [`configs/quantumofsolace.toml`](configs/quantumofsolace.toml)
-adds them, and the records for [RG-007-001](docs/RG-007-001.md) to
-[RG-007-004](docs/RG-007-004.md) trace each one.
+- Start the game's executable with its game files (see
+  [docs/building.md](docs/building.md#run-it) for the options).
+- Open the **Xbox guide** with View and Menu together (Back and Start on an
+  Xbox 360 pad) or the Home key. It has the game's achievements, its add-ons
+  (Games & Apps > Manage Game), the mods and patches you can switch on while
+  playing (Settings > Mods and Settings > Patches), the game's cheat codes,
+  and Leave Game.
+- Saves are kept per user, as on the console.
 
-## Blood Stone and 007 Legends status
+## Issues and records
 
-**What works** on an NVIDIA RTX 5080 Laptop GPU, with ReXGlue `main` `bc2a70e`
-([RG-007-006](docs/RG-007-006.md)):
-
-- **Recompiles without title hints:** neither game needs a file in `configs/`.
-- **Boots to the front end:** 90-second GDK runs of each reach its animated
-  front end with no error lines. A controller connects and XAudio2 plays.
-
-**Not validated yet:** starting a mission, gameplay, saving and loading,
-visual accuracy, AMD and Intel GPUs, and the standard (non-GDK) build.
-
-## Requirements
-
-- **Your own copy of the game:** the disc listed above. Check that its title
-  and media IDs match.
-- **Windows 11 x64 and a Direct3D 12 GPU.** Only NVIDIA has been tested.
-- **The build tools:** Visual Studio 2026 with LLVM Clang, CMake and Ninja, as
-  listed in the [SDK README](https://github.com/furqanagwan/rexglue-sdk#requirements).
-- **The ReXGlue SDK** from [furqanagwan/rexglue-sdk](https://github.com/furqanagwan/rexglue-sdk),
-  built and installed from `main` `bc2a70e` or later.
-- **Optional:** Microsoft GDK 260404, for the GDK build (GameInput, XAudio2,
-  the Gaming Runtime and MSIXVC packaging).
-
-## Build a game
-
-| Game | Folder | Project name | Executable | Title configuration |
-| --- | --- | --- | --- | --- |
-| Quantum of Solace | `Quantum of Solace/` | `quantumofsolace` | `default.xex` | `configs/quantumofsolace.toml` |
-| Blood Stone | `Blood Stone/` | `bloodstone` | `default.xex` | none |
-| 007 Legends | `Legends/` | `legends` | `Default.xex` | none |
-
-Keep everything in the game's folder next to this repository, which is
-ignored. The steps use Blood Stone; substitute the row for another game.
-
-1. **Extract the files** from your disc image into `Blood Stone/game/`, for
-   example with [extract-xiso](https://github.com/XboxDev/extract-xiso).
-2. **Create the project:**
-
-   ```powershell
-   rexglue init --project-name bloodstone --xex-path "Blood Stone/game/default.xex" --game-root "Blood Stone/game" --project-root "Blood Stone/recompiled"
-   ```
-
-3. **Quantum of Solace and 007 Legends: add the title configuration** to the
-   entry point's `includes` in the manifest. The path is relative to that file:
-
-   ```toml
-   includes = ["../../configs/quantumofsolace.toml"]   # quantumofsolace_manifest.toml
-   includes = ["../../configs/legends.toml"]           # legends_manifest.toml
-   ```
-
-   Both carry switchable mods from the Aurora trainer pack, turned on and off
-   in the Xbox guide's Settings > Mods ([RG-007-010](docs/RG-007-010.md)).
-   007 Legends also lists its own cheat codes, the ones typed in at Extras >
-   Cheat Codes, under Settings > Cheats ([RG-007-011](docs/RG-007-011.md)).
-   Their marketplace add-ons (the SKYFALL Content Pack and two character skins
-   for 007 Legends, the Camille Map Pack for Quantum of Solace) are listed in
-   Games & Apps > Manage Game, installed from packages on this PC
-   ([RG-007-012](docs/RG-007-012.md)).
-
-   For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
-   on Canary's "Unlock FPS" patch, which Canary warns can softlock certain
-   missions ([RG-007-008](docs/RG-007-008.md)). The patch is switchable: with
-   an SDK that has the Xbox guide (RG-GDK-041), turn it on or off while playing
-   in the guide's Settings > Patches; the choice is saved.
-
-4. **Generate and build** against the installed SDK:
-
-   ```powershell
-   cd "Blood Stone/recompiled"
-   rexglue codegen
-   cmake -S . -B out/build/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=<ReXGlue install prefix>
-   cmake --build out/build/release
-   ```
-
-   For the GDK build, use the SDK's GDK install prefix (`out/install/win-amd64-gdk`).
-
-5. **Run it:**
-
-   ```powershell
-   .\out\build\release\bloodstone.exe --game_data_root="<...>/Blood Stone/game" --user_data_root="<...>/Blood Stone/saves" --gpu_plugin=xenos
-   ```
-
-   Input, audio and the window use the native backends by default.
+- **Problems and progress** are tracked as
+  [issues](https://github.com/furqanagwan/007/issues) with IDs `RG-007-NNN`;
+  each has a record in [docs/](docs/README.md) with the tested executable's
+  hashes, the SDK commit, the hardware, and what was and wasn't checked.
+- **Where fixes go:** fixes that help every game go to
+  [rexglue-sdk](https://github.com/furqanagwan/rexglue-sdk). Only what's
+  specific to one of these games belongs here.
 
 ## Repository layout
 
 ```text
-assets/                            Original artwork (logo, social preview)
-configs/quantumofsolace.toml       Quantum of Solace codegen: function entries, patches
-configs/quantumofsolace-60fps.toml The same with the 60 FPS patch switched on
-docs/RG-007-NNN.md                 One record per issue: goal, evidence, result
+Quantum of Solace/   README.md and quantumofsolace.toml (codegen configuration)
+Blood Stone/         README.md and bloodstone.toml
+Legends/             README.md and legends.toml
+docs/                building.md, and one record per issue (RG-007-NNN.md)
+assets/              Original artwork (logo, social preview)
 ```
 
-Everything else in the folder is ignored (`.gitignore` is an allowlist).
-
-## Issues and records
-
-- **Tracking:** work is tracked as [issues](https://github.com/furqanagwan/007/issues)
-  with IDs `RG-007-NNN`. Each has a record in `docs/`, with the tested
-  executable's hashes, the SDK commit, the hardware and what was and wasn't
-  checked.
-- **Where fixes go:** fixes that help every title go to
-  [rexglue-sdk](https://github.com/furqanagwan/rexglue-sdk). Only what's
-  specific to one of these games belongs here.
-- **Standard:** this repository follows the
-  [title repository standard](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/title-repo-standard.md).
+Everything else in a game's folder (disc images, extracted files, generated
+code, builds, saves, logs) stays on your machine: `.gitignore` is an
+allowlist. This repository follows the SDK's
+[title repository standard](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/title-repo-standard.md).
 
 ## Legal
 
 007, James Bond and the game titles are trademarks of their respective owners.
 This is an independent preservation and research project, not affiliated with
-or endorsed by them. It contains no game code or assets, and the artwork in
-`assets/` is original.
+or endorsed by them. It contains no game code or assets. The artwork in
+`assets/` is original; the banners on the game pages are linked from the
+[x360db](https://github.com/xenia-manager/x360db) database, not stored here.
 
 ## Credits
 
@@ -179,3 +98,6 @@ or endorsed by them. It contains no game code or assets, and the artwork in
   [Xenia Canary](https://github.com/xenia-canary/xenia-canary) and
   [Xenia Edge](https://github.com/has207/xenia-edge), whose Xbox 360 research
   the runtime draws on.
+- [LaunchBox Games Database](https://gamesdb.launchbox-app.com/) and
+  [x360db](https://github.com/xenia-manager/x360db) for the game details on
+  each page.
