@@ -1,4 +1,8 @@
-<p align="center"><img src="assets/logo.svg" width="128" alt="007 recompilation logo"></p>
+<p align="center">
+  <a href="Quantum%20of%20Solace/README.md"><img src="assets/icons/quantumofsolace.png" width="96" alt="Quantum of Solace"></a>
+  <a href="Blood%20Stone/README.md"><img src="assets/icons/bloodstone.png" width="96" alt="James Bond 007: Blood Stone"></a>
+  <a href="Legends/README.md"><img src="assets/icons/legends.png" width="96" alt="007 Legends"></a>
+</p>
 
 # 007 — Xbox 360 recompilation
 
@@ -74,7 +78,8 @@ Quantum of Solace/   README.md and quantumofsolace.toml (codegen configuration)
 Blood Stone/         README.md and bloodstone.toml
 Legends/             README.md and legends.toml
 docs/                building.md, and one record per issue (RG-007-NNN.md)
-assets/              Original artwork (logo, social preview)
+assets/              Original artwork (logo, social preview); icons/ holds each
+                     game's title icon, as its window shows it
 ```
 
 Everything else in a game's folder (disc images, extracted files, generated
@@ -86,8 +91,10 @@ allowlist. This repository follows the SDK's
 
 007, James Bond and the game titles are trademarks of their respective owners.
 This is an independent preservation and research project, not affiliated with
-or endorsed by them. It contains no game code or assets. The artwork in
-`assets/` is original; the banners on the game pages are linked from the
+or endorsed by them. It contains no game code or game files. The artwork in
+`assets/` is original, except `assets/icons/`: each game's own title icon
+(its XDBF title image, the icon its window and taskbar button show), so the
+games can be recognised. The banners on the game pages are linked from the
 [x360db](https://github.com/xenia-manager/x360db) database, not stored here.
 
 ## Credits
