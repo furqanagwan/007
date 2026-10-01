@@ -1,19 +1,20 @@
 # 007 Legends (title 415608D8). Include it from the entry point of
 # legends_manifest.toml: includes = ["../../configs/legends.toml"].
 
-# Cheats (RG-007-010), from the XYZEngine trainer for this title in the
-# Aurora trainer pack (StonedModder/Aurora-JTAG-RGH-Trainer-Pack-Repository,
+# Mods (RG-007-010; called cheats until RG-007-011), from the XYZEngine
+# trainer for this title in the Aurora trainer pack
+# (StonedModder/Aurora-JTAG-RGH-Trainer-Pack-Repository,
 # Aurora/user/Trainers/415608D8, "(XYZGEN)Trainer.xex", trainer by
 # BoogieMan). Read from the trainer's code, not copied: each cheat is the
 # instruction it swaps, and every original word was checked against this
-# game's default.xex. Switchable, so the guide's Settings > Cheats turns
+# game's default.xex. Switchable, so the guide's Settings > Mods turns
 # them on and off while playing. All start off.
 
 # "God Mod": health is reloaded from its maximum instead of having the
 # damage subtracted (fsubs f12,f13,f30 -> lfs f12,0x114(r26)).
 [[patch]]
 name = "God Mode"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -24,7 +25,7 @@ value = 0xC19A0114
 # (sthx r30,r10,r31 -> nop).
 [[patch]]
 name = "Infinite Ammo & No Reload"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -35,7 +36,7 @@ value = 0x60000000
 # (subf r9,r10,r11 -> li r9,999).
 [[patch]]
 name = "Infinite Clip"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -46,7 +47,7 @@ value = 0x392003E7
 # (lwz r11,0(r5) -> lis r11,0x3B9A).
 [[patch]]
 name = "Infinite & Max XP"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -57,7 +58,7 @@ value = 0x3D603B9A
 # (fadds f12,f13,f0 -> lfs f12,0x1E10(r11)).
 [[patch]]
 name = "Infinite Time"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -68,9 +69,56 @@ value = 0xC18B1E10
 # (lwz r11,0(r3) -> lis r11,0x3B9A).
 [[patch]]
 name = "Max Score"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
 address = 0x8246E3F0
 value = 0x3D603B9A
+
+# The game's own cheat codes (RG-007-011), typed in at Extras > Cheat Codes.
+# They are case sensitive. Nothing is patched: the guide's Settings > Cheats
+# lists them so a player need not look them up. From GameRevolution's and
+# Cheat Code Central's 007 Legends Xbox 360 pages (2026-10-01), which agree;
+# the codes are not stored as text in the game's files, so they are not
+# checked against it.
+[[cheat]]
+name = "James Bond (Jacket)"
+code = "f1n3att1r3"
+description = "Play as James Bond in his jacket in split-screen."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "James Bond (Astronaut)"
+code = "astr0b0y"
+description = "Play as James Bond in his astronaut suit in split-screen."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "007 Pack"
+code = "g3tb0nd"
+description = "The Walther PPK in single-player and multiplayer, and the Fast Switch gadget in multiplayer."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "Moonraker Pack"
+code = "m00nlas3r"
+description = "The Moonraker Laser Mk2 in multiplayer."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "Goldfinger Pack"
+code = "au43v3r"
+description = "Goldfinger (Fort Knox) and Pussy Galore (Pilot) in multiplayer."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "Nemesis Pack"
+code = "v00d00f1sh"
+description = "Jaws (Astronaut) and Baron Samedi (Skeleton) in multiplayer."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "Stealth Pack"
+code = "qbranch3d"
+description = "The Long Reach and Acute Hearing gadgets in multiplayer."
+where = "Extras > Cheat Codes"
+[[cheat]]
+name = "Skyfall Pack"
+code = "l3g3nds"
+description = "The Skyfall mission, Eve, Patrice, the Kowloon T-100 and the Tactical FSR in multiplayer."
+where = "Extras > Cheat Codes"
