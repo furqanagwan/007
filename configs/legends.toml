@@ -1,0 +1,76 @@
+# 007 Legends (title 415608D8). Include it from the entry point of
+# legends_manifest.toml: includes = ["../../configs/legends.toml"].
+
+# Cheats (RG-007-010), from the XYZEngine trainer for this title in the
+# Aurora trainer pack (StonedModder/Aurora-JTAG-RGH-Trainer-Pack-Repository,
+# Aurora/user/Trainers/415608D8, "(XYZGEN)Trainer.xex", trainer by
+# BoogieMan). Read from the trainer's code, not copied: each cheat is the
+# instruction it swaps, and every original word was checked against this
+# game's default.xex. Switchable, so the guide's Settings > Cheats turns
+# them on and off while playing. All start off.
+
+# "God Mod": health is reloaded from its maximum instead of having the
+# damage subtracted (fsubs f12,f13,f30 -> lfs f12,0x114(r26)).
+[[patch]]
+name = "God Mode"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x82274F50
+value = 0xC19A0114
+
+# "Inf Ammo & No Reload": the store of the new ammo count is dropped
+# (sthx r30,r10,r31 -> nop).
+[[patch]]
+name = "Infinite Ammo & No Reload"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x82134444
+value = 0x60000000
+
+# "Inf Clip": the clip is set to 999 instead of reduced
+# (subf r9,r10,r11 -> li r9,999).
+[[patch]]
+name = "Infinite Clip"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x821360B8
+value = 0x392003E7
+
+# "Inf & Max XP": the XP read becomes 0x3B9A0000
+# (lwz r11,0(r5) -> lis r11,0x3B9A).
+[[patch]]
+name = "Infinite & Max XP"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x82462F38
+value = 0x3D603B9A
+
+# "Inf Time": the timer is reloaded instead of advanced
+# (fadds f12,f13,f0 -> lfs f12,0x1E10(r11)).
+[[patch]]
+name = "Infinite Time"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x82118E50
+value = 0xC18B1E10
+
+# "Max Score": the score read becomes 0x3B9A0000
+# (lwz r11,0(r3) -> lis r11,0x3B9A).
+[[patch]]
+name = "Max Score"
+category = "cheat"
+enabled = false
+switchable = true
+[[patch.be32]]
+address = 0x8246E3F0
+value = 0x3D603B9A
