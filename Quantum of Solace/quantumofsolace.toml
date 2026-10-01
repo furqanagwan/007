@@ -165,3 +165,17 @@ lr = 0x82233484
 
 [[dlc]]
 id = "00000000-0000-400C-80CF-0001415607FF"  # The Camille Map Pack
+
+# Title updates (Xbox Unity TitleUpdateInfo.php?titleid=415607FF, 2026-10-01):
+# version 2 for this disc, TitleUpdateID 22386, uploaded 2012-06-18. It holds
+# default.xexp, default_mp.xexp and patch_mp.ff. Optional: the guide's Manage
+# Game downloads it and turns it on. No source says what it changes, so there
+# is no changelog. It runs only in a build with its executable (a manifest
+# [[title_update]] and that version's own config).
+[[title_update]]
+version = 2
+media_id = "06DD88A0"
+base_version = 7
+content_id = "B59A1F29F4FB82AB35DC7AEC8975F83F620A8290"
+size_kb = 2420
+date = "2012-06-18"
