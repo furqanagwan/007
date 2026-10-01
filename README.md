@@ -107,8 +107,10 @@ ignored. The steps use Blood Stone; substitute the row for another game.
    includes = ["../../configs/legends.toml"]           # legends_manifest.toml
    ```
 
-   Both carry switchable cheats from the Aurora trainer pack, turned on and off
-   in the Xbox guide's Settings > Cheats ([RG-007-010](docs/RG-007-010.md)).
+   Both carry switchable mods from the Aurora trainer pack, turned on and off
+   in the Xbox guide's Settings > Mods ([RG-007-010](docs/RG-007-010.md)).
+   007 Legends also lists its own cheat codes, the ones typed in at Extras >
+   Cheat Codes, under Settings > Cheats ([RG-007-011](docs/RG-007-011.md)).
 
    For up to 60 FPS, include `quantumofsolace-60fps.toml` instead. It switches
    on Canary's "Unlock FPS" patch, which Canary warns can softlock certain

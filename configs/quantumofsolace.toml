@@ -93,19 +93,20 @@ value = 0x60000000
 address = 0x820F2283
 value = 0x01
 
-# Cheats (RG-007-010), from the XYZEngine trainer for this title in the
-# Aurora trainer pack (StonedModder/Aurora-JTAG-RGH-Trainer-Pack-Repository,
+# Mods (RG-007-010; called cheats until RG-007-011), from the XYZEngine
+# trainer for this title in the Aurora trainer pack
+# (StonedModder/Aurora-JTAG-RGH-Trainer-Pack-Repository,
 # Aurora/user/Trainers/415607FF, "(XYZGEN)Trainer.xex", trainer by
 # Boogieman). Read from the trainer's code, not copied: each cheat is the
 # instruction it swaps, and every original word was checked against this
-# XEX. Switchable, so the guide's Settings > Cheats turns them on and off
+# XEX. Switchable, so the guide's Settings > Mods turns them on and off
 # while playing. All start off.
 
 # "Inf & Max Ammo": the shot no longer subtracts from the clip; it is set
 # to 999 (subf r9,r11,r10 -> ori r9,r10,999).
 [[patch]]
 name = "Infinite Ammo"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -116,7 +117,7 @@ value = 0x614903E7
 # ori r11,r11,999).
 [[patch]]
 name = "Infinite Grenades"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -129,7 +130,7 @@ value = 0x616B03E7
 # also drops the rescaled health store at 0x82252BCC (stw r30,380(r31)).
 [[patch]]
 name = "God Mode"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.be32]]
@@ -145,7 +146,7 @@ lr = 0x82233674
 # 0x82233480 (lr 0x82233484), the other entities' path: one hit kills.
 [[patch]]
 name = "One-Hit Kills"
-category = "cheat"
+category = "mod"
 enabled = false
 switchable = true
 [[patch.set]]
