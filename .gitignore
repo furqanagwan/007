@@ -5,6 +5,7 @@
 !/docs/
 /docs/*
 !/docs/README.md
+!/docs/building.md
 !/docs/RG-007-001.md
 !/docs/RG-007-002.md
 !/docs/RG-007-003.md
@@ -14,11 +15,20 @@
 !/docs/RG-007-008.md
 !/docs/RG-007-010.md
 !/docs/RG-007-011.md
-!/configs/
-/configs/*
-!/configs/quantumofsolace.toml
-!/configs/quantumofsolace-60fps.toml
-!/configs/legends.toml
+!/docs/RG-007-012.md
+!/docs/RG-007-013.md
+!/Quantum of Solace/
+/Quantum of Solace/*
+!/Quantum of Solace/README.md
+!/Quantum of Solace/quantumofsolace.toml
+!/Blood Stone/
+/Blood Stone/*
+!/Blood Stone/README.md
+!/Blood Stone/bloodstone.toml
+!/Legends/
+/Legends/*
+!/Legends/README.md
+!/Legends/legends.toml
 !/assets/
 /assets/*
 !/assets/logo.svg

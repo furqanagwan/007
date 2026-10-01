@@ -1,5 +1,5 @@
 # 007 Legends (title 415608D8). Include it from the entry point of
-# legends_manifest.toml: includes = ["../../configs/legends.toml"].
+# legends_manifest.toml: includes = ["../legends.toml"].
 
 # Mods (RG-007-010; called cheats until RG-007-011), from the XYZEngine
 # trainer for this title in the Aurora trainer pack

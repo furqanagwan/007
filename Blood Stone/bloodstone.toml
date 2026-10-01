@@ -1,0 +1,8 @@
+# James Bond 007: Blood Stone (title 4156081F, media 42DBE473)
+# XEX SHA-256: c411c4c81d81cd4bc06de4ea2bc0866a7741c44f7108451ca14fc6be5d1ac4b0
+# Include it from the entry point of bloodstone_manifest.toml:
+# includes = ["../bloodstone.toml"].
+#
+# Blood Stone recompiles and boots with no title hints (RG-007-006), so this
+# file has no function entries, patches or add-ons yet. Title-specific codegen
+# settings for this executable go here.

@@ -1,5 +1,7 @@
 # Quantum of Solace (title 415607FF, media 06DD88A0)
 # XEX SHA-256: a96f4f651cc0937e51aa2f81245b48ba08d71de1b8bef0e33bc2b2bca29caa42
+# Include it from the entry point of quantumofsolace_manifest.toml:
+# includes = ["../quantumofsolace.toml"].
 
 # The game's CRT setjmp and longjmp (RG-007-007). The engine's error path
 # (Com_Error, for example from the "disconnect" command after a save)
@@ -73,8 +75,8 @@ longjmp_address = 0x825AB7C0
 # The two nops change the engine's frame timing; the byte is the low half of
 # `li r11,1` at 0x820F2280, the presentation interval (0x00 unlimited, 0x01
 # 60 FPS, 0x02 30 FPS; 0x01 is the original). Canary's warning: "FPS higher
-# than 30 can cause softlocks in certain missions." Off here; build with
-# configs/quantumofsolace-60fps.toml to start with it on.
+# than 30 can cause softlocks in certain missions." Off until the player
+# turns it on.
 #
 # Switchable (RG-007-009): both versions of the patched words are compiled
 # in, so the player can turn it on and off while playing, in the Xbox guide
