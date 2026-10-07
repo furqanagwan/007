@@ -66,10 +66,32 @@ For the GDK build, use the SDK's GDK install prefix (`out/install/win-amd64-gdk`
 ## Run it
 
 ```powershell
-.\out\build\release\bloodstone.exe --game_data_root="<...>/Blood Stone/game" --gpu_plugin=xenos
+.\out\build\release\bloodstone.exe --game_data_root="<...>/Blood Stone/game" --gpu_plugin=xenos --fullscreen=true --launch_menu=false --log_level=warn
 ```
 
 Input, audio and the window use the native backends by default. Saves go to
 the per-user location the SDK documents
 ([data locations](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/data-locations.md));
 `--user_data_root` puts them somewhere else.
+
+The games use borderless fullscreen, with no Windows title bar or close button.
+Open the Xbox 360 Guide with Home or View + Menu, then choose Leave Game and
+confirm to quit. The SDK's Xbox 360 Guide presentation remains selected for
+all three titles.
+
+From the repository root, the launcher makes fullscreen and quiet logging
+explicit without changing saves, profiles or patch preferences:
+
+```powershell
+.\scripts\Launch-007.ps1 -Game bloodstone -GameRoot ".\Blood Stone\game"
+```
+
+Use `-Executable "<path-to-your-build>\bloodstone.exe"` for a different build
+folder. The launcher starts one instance. Normal launches log warnings/errors;
+verbose diagnostics are enabled only for a bounded investigation.
+
+Current title work covers Quantum of Solace, Blood Stone and 007 Legends.
+Routine checks run each candidate once in fullscreen. Paired previous/candidate
+runs are reserved for changes that need a regression comparison. Startup alone
+does not validate gameplay or saves; the next checkpoint is
+[interactive Quantum of Solace validation](https://github.com/furqanagwan/007/issues/16).

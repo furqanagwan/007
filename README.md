@@ -54,6 +54,8 @@ Until then, the games are built from source: see
 
 - Start the game's executable with its game files (see
   [docs/building.md](docs/building.md#run-it) for the options).
+  It opens in borderless fullscreen; the repository launcher also makes this
+  explicit and keeps routine logging to warnings/errors.
 - Open the **Xbox guide** with View and Menu together (Back and Start on an
   Xbox 360 pad) or the Home key. It has the game's achievements, its add-ons
   (Games & Apps > Manage Game), the mods and patches you can switch on while
