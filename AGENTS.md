@@ -24,7 +24,13 @@ Preserve game inputs, installed binaries, user profiles, saves and patch choices
 Use disposable save copies for regression and failure tests. Never commit game
 files, generated game code, saves, private screenshots or raw runtime logs.
 
-The next recommended issue is `furqanagwan/007#16`: establish a repeatable
+Prioritize bounded shared SDK fixes before title work. Run their affected
+software tests per change, then batch generation (when codegen changed), builds
+and title tests for these three games. Use PC GDK 260404; GDK-free builds in old
+records are historical. Current SDK audit/queue:
+https://github.com/furqanagwan/rexglue-sdk/pull/216.
+
+The title acceptance issue remains `furqanagwan/007#16`: establish a repeatable
 interactive Quantum of Solace checkpoint on the current build, then check
 controller/keyboard input, gameplay, save/load and Guide exit. Consult the
 existing save/load evidence in `docs/RG-007-007.md` before repeating old work.

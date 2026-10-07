@@ -13,7 +13,7 @@ ignores apart from its `README.md` and `.toml`.
   listed in the [SDK README](https://github.com/furqanagwan/rexglue-sdk#requirements).
 - **The ReXGlue SDK** from [furqanagwan/rexglue-sdk](https://github.com/furqanagwan/rexglue-sdk),
   built and installed from `main`.
-- **Optional:** Microsoft GDK 260404, for the GDK build (GameInput, XAudio2,
+- **Required for current work:** Microsoft PC GDK 260404 (GameInput, XAudio2,
   the Gaming Runtime and MSIXVC packaging).
 - **Optional:** your console's dashboard system update (`$SystemUpdate`), so
   the Xbox guide is built in; see the SDK's
@@ -61,7 +61,10 @@ cmake -S . -B out/build/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_CO
 cmake --build out/build/release
 ```
 
-For the GDK build, use the SDK's GDK install prefix (`out/install/win-amd64-gdk`).
+Use the SDK's GDK install prefix (`out/install/win-amd64-gdk`). The owner now
+requires GDK for SDK/title work; older GDK-free measurements remain historical.
+The policy and software-validation change is tracked in
+[SDK PR #216](https://github.com/furqanagwan/rexglue-sdk/pull/216).
 
 ## Run it
 
