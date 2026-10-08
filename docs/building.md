@@ -13,7 +13,7 @@ ignores apart from its `README.md` and `.toml`.
   listed in the [SDK README](https://github.com/furqanagwan/rexglue-sdk#requirements).
 - **The ReXGlue SDK** from [furqanagwan/rexglue-sdk](https://github.com/furqanagwan/rexglue-sdk),
   built and installed from `main`.
-- **Optional:** Microsoft GDK 260404, for the GDK build (GameInput, XAudio2,
+- **Required for current work:** Microsoft PC GDK 260404 (GameInput, XAudio2,
   the Gaming Runtime and MSIXVC packaging).
 - **Optional:** your console's dashboard system update (`$SystemUpdate`), so
   the Xbox guide is built in; see the SDK's
@@ -61,15 +61,40 @@ cmake -S . -B out/build/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_CO
 cmake --build out/build/release
 ```
 
-For the GDK build, use the SDK's GDK install prefix (`out/install/win-amd64-gdk`).
+Use the SDK's GDK install prefix (`out/install/win-amd64-gdk`). The owner now
+requires GDK for SDK/title work; older GDK-free measurements remain historical.
+The policy and software-validation change is tracked in
+[SDK PR #216](https://github.com/furqanagwan/rexglue-sdk/pull/216).
 
 ## Run it
 
 ```powershell
-.\out\build\release\bloodstone.exe --game_data_root="<...>/Blood Stone/game" --gpu_plugin=xenos
+.\out\build\release\bloodstone.exe --game_data_root="<...>/Blood Stone/game" --gpu_plugin=xenos --fullscreen=true --launch_menu=false --log_level=warn
 ```
 
 Input, audio and the window use the native backends by default. Saves go to
 the per-user location the SDK documents
 ([data locations](https://github.com/furqanagwan/rexglue-sdk/blob/main/docs/data-locations.md));
 `--user_data_root` puts them somewhere else.
+
+The games use borderless fullscreen, with no Windows title bar or close button.
+Open the Xbox 360 Guide with Home or View + Menu, then choose Leave Game and
+confirm to quit. The SDK's Xbox 360 Guide presentation remains selected for
+all three titles.
+
+From the repository root, the launcher makes fullscreen and quiet logging
+explicit without changing saves, profiles or patch preferences:
+
+```powershell
+.\scripts\Launch-007.ps1 -Game bloodstone -GameRoot ".\Blood Stone\game"
+```
+
+Use `-Executable "<path-to-your-build>\bloodstone.exe"` for a different build
+folder. The launcher starts one instance. Normal launches log warnings/errors;
+verbose diagnostics are enabled only for a bounded investigation.
+
+Current title work covers Quantum of Solace, Blood Stone and 007 Legends.
+Routine checks run each candidate once in fullscreen. Paired previous/candidate
+runs are reserved for changes that need a regression comparison. Startup alone
+does not validate gameplay or saves; the next checkpoint is
+[interactive Quantum of Solace validation](https://github.com/furqanagwan/007/issues/16).
