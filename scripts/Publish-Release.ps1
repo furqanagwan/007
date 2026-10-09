@@ -58,7 +58,8 @@ function Import-VisualStudioEnvironment {
     $vsPath = & $vswhere -latest -prerelease -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
     if (-not $vsPath) { throw 'Visual Studio with the C++ tools was not found' }
     $vcvars = Join-Path $vsPath 'VC\Auxiliary\Build\vcvars64.bat'
-    foreach ($line in (cmd /c "`"$vcvars`" >nul && set")) {
+    $env:PATH = "$(Split-Path $vswhere);$env:PATH"
+    foreach ($line in (cmd /c "`"$vcvars`" >nul 2>nul && set")) {
         if ($line -match '^([^=]+)=(.*)$') { Set-Item -Path "env:$($Matches[1])" -Value $Matches[2] }
     }
     return $vsPath
@@ -66,7 +67,8 @@ function Import-VisualStudioEnvironment {
 
 function Find-RuntimeLibraryFolder([string] $VsPath) {
     $folder = Get-ChildItem (Join-Path $VsPath 'VC\Redist\MSVC') -Directory |
-        Sort-Object { [version]($_.Name -replace '[^\d.]', '') } -Descending |
+        Where-Object { $_.Name -match '^\d+\.\d+\.\d+$' } |
+        Sort-Object { [version]$_.Name } -Descending |
         ForEach-Object { Get-ChildItem (Join-Path $_.FullName 'x64') -Directory -Filter 'Microsoft.VC*.CRT' -ErrorAction SilentlyContinue } |
         Select-Object -First 1
     if (-not $folder) { throw 'The Visual C++ redistributable files were not found' }
