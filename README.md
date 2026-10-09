@@ -28,7 +28,7 @@ gameplay, not yet checked end to end. **Playable:** checked through the game.
 ## Play
 
 1. Download a release from [Releases](https://github.com/furqanagwan/007/releases)
-   (none published yet), or build it: [docs/building.md](docs/building.md).
+   ([what changed](CHANGELOG.md)), or build it: [docs/building.md](docs/building.md).
 2. Start the game and choose your disc image or game folder the first time.
 3. Press View and Menu together (or Home) for the Xbox 360 Guide:
    achievements, settings, mods and Leave Game.
@@ -41,8 +41,8 @@ Xbox controller.
 ```text
 <Game>/README.md   The game's page: disc, status, what works
 <Game>/<name>.toml How ReXGlue recompiles that game
-docs/              Building, and one record per issue (RG-007-NNN.md)
-scripts/           Launcher
+docs/              Building, releasing, and one record per issue (RG-007-NNN.md)
+scripts/           Launcher and release script
 assets/            Artwork and each game's icon
 ```
 
