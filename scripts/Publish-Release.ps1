@@ -172,7 +172,8 @@ $smokeResults = @()
 foreach ($game in $games) {
     $name = $game.Name
     Write-Step "Building $($game.Title)"
-    $project = Join-Path $workRoot "build/$name"
+    $project = Join-Path $repoRoot "$($game.Folder)/recompiled-release-$Version"
+    if (Test-Path -LiteralPath $project) { Remove-Item -Recurse -Force -LiteralPath $project }
     & robocopy (Join-Path $repoRoot "$($game.Folder)/recompiled") $project /E /XD generated out shader_cache /NFL /NDL /NJH /NJS /NP | Out-Null
     if ($LASTEXITCODE -ge 8) { throw "Copying the $name project failed" }
     if ($ShaderCacheRoot -and (Test-Path -LiteralPath (Join-Path $ShaderCacheRoot $name))) {

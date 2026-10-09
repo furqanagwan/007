@@ -29,7 +29,8 @@ The tag is `v<version>`; everything before `1.0.0` is a pre-release.
    ```
 
    For each game it installs the SDK to a fresh prefix, regenerates and
-   builds the game with the Xbox 360 Guide built in, and stages the
+   builds the game in `<Game>/recompiled-release-<version>` (beside
+   `recompiled`, whose manifest refers to `../`) with the Xbox 360 Guide built in, and stages the
    executable, its two DLLs, the Visual C++ runtime DLLs, `README.txt` and
    `version.txt`. Then it:
 
