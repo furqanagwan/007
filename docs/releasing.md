@@ -39,7 +39,8 @@ The tag is `v<version>`; everything before `1.0.0` is a pre-release.
      no `.pdb`, `.iso`, `.xex`, saves or logs);
    - runs the staged game fullscreen for 3 minutes from a persistent test
      profile under `out/test-profiles/<name>` (never reset, so runs continue
-     from the last save), failing on a crash or a critical log line;
+     from the last save), failing on a crash, a critical log line, GPU
+     emulation not loading, or no frames presented;
    - zips it and writes `SHA256SUMS.txt` and `release-notes.md` (the
      changelog section) under `out/release/<version>`.
 

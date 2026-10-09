@@ -133,8 +133,12 @@ function Invoke-SmokeRun([hashtable] $Game, [string] $Executable, [string] $Sour
     $log = if (Test-Path -LiteralPath $LogFile) { Get-Content -LiteralPath $LogFile } else { @() }
     $critical = @($log | Where-Object { $_ -match '\[critical\]' }).Count
     $errors = @($log | Where-Object { $_ -match '\[error\]' }).Count
-    "{0}: ran {1} s, alive at the end: {2}, errors {3}, critical {4}" -f $Game.Title, $SmokeSeconds, $alive, $errors, $critical
-    if (-not $alive -or $critical -gt 0) { throw "$($Game.Title) failed its smoke run; see $LogFile" }
+    $frameReports = @($log | Where-Object { $_ -match 'Frame pacing: [1-9]' }).Count
+    $gpuMissing = @($log | Where-Object { $_ -match 'no GPU emulation loaded' }).Count -gt 0
+    "{0}: ran {1} s, alive at the end: {2}, frame reports {3}, errors {4}, critical {5}" -f $Game.Title, $SmokeSeconds, $alive, $frameReports, $errors, $critical
+    if (-not $alive -or $critical -gt 0 -or $gpuMissing -or $frameReports -eq 0) {
+        throw "$($Game.Title) failed its smoke run; see $LogFile"
+    }
 }
 
 function Get-ChangelogSection([string] $Path, [string] $SectionVersion) {
