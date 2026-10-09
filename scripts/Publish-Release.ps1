@@ -34,12 +34,16 @@ function Write-Step([string] $Message) { Write-Host "== $Message" }
 
 function Invoke-Checked([string] $FilePath, [string[]] $Arguments, [string] $WorkingDirectory) {
     Push-Location $WorkingDirectory
+    $previousPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
     try {
-        & $FilePath @Arguments
-        if ($LASTEXITCODE -ne 0) { throw "$FilePath $($Arguments -join ' ') failed with exit code $LASTEXITCODE" }
+        & $FilePath @Arguments 2>&1 | ForEach-Object { "$_" }
+        $exitCode = $LASTEXITCODE
     } finally {
+        $ErrorActionPreference = $previousPreference
         Pop-Location
     }
+    if ($exitCode -ne 0) { throw "$FilePath $($Arguments -join ' ') failed with exit code $exitCode" }
 }
 
 function Assert-ReleaseCheckout([string] $Path, [string] $Name) {
