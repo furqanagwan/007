@@ -187,13 +187,15 @@ foreach ($game in $games) {
     $buildDir = Join-Path $project 'out/build/release'
     Invoke-Checked 'cmake' @('-S', '.', '-B', $buildDir, '-G', 'Ninja', '-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_C_COMPILER=clang', '-DCMAKE_CXX_COMPILER=clang++', "-DCMAKE_PREFIX_PATH=$sdkPrefix",
-        "-DREXGLUE_SYSTEM_UPDATE=$systemUpdatePath") $project
+        "-DREXGLUE_SYSTEM_UPDATE=$systemUpdatePath", "-DREXGLUE_TITLE_VERSION=$Version",
+        '-DREXGLUE_UPDATE_REPOSITORY=furqanagwan/007',
+        "-DREXGLUE_UPDATE_ASSET=007-$($game.Asset)-*-win-x64.zip") $project
     Invoke-Checked 'cmake' @('--build', $buildDir, '--target', $name, '--parallel') $project
 
     $assetBase = "007-$($game.Asset)-$Version-win-x64"
     $stage = Join-Path $workRoot "stage/$assetBase"
     New-Item -ItemType Directory -Force $stage | Out-Null
-    Copy-Item (Join-Path $buildDir "$name.exe"), (Join-Path $buildDir 'rexruntime.dll'), (Join-Path $buildDir 'rexgpu-xenos.dll') $stage
+    Copy-Item (Join-Path $buildDir "$name.exe"), (Join-Path $buildDir 'rexruntime.dll'), (Join-Path $buildDir 'rexgpu-xenos.dll'), (Join-Path $buildDir 'rexglue-updater.exe') $stage
     foreach ($library in $runtimeLibraries) { Copy-Item (Join-Path $runtimeLibraryFolder $library) $stage }
     if (Test-Path -LiteralPath (Join-Path $buildDir 'shader_cache')) {
         Copy-Item -Recurse (Join-Path $buildDir 'shader_cache') (Join-Path $stage 'shader_cache')
@@ -217,7 +219,8 @@ foreach ($game in $games) {
         "",
         "Saves:    %USERPROFILE%\Saved Games\$name",
         "Settings, logs and caches: %LOCALAPPDATA%\$name",
-        "Updating: replace these files with the new release's; saves and settings stay.",
+        "Updates: Guide > Games & Apps > Game Update offers new versions and installs them;",
+        "         saves and settings stay, and the previous version is kept.",
         "",
         "This is an alpha. Known issues and changes: https://github.com/furqanagwan/007/releases",
         "Report problems: https://github.com/furqanagwan/007/issues"
