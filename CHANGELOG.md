@@ -5,6 +5,35 @@ All notable changes to the 007 releases. The format follows
 [Semantic Versioning](https://semver.org): `0.x.y-alpha.N` while the games
 are in alpha.
 
+## [0.1.0-alpha.2] - 2026-10-10
+
+### All games
+
+- **Game Update.** Games & Apps > Game Update in the Guide checks for a newer
+  release of your game, shows what changed and installs it in place. Saves
+  and settings are kept.
+- **Choose where the sound plays.** Settings > Preferences > Audio Output
+  lists your PC's outputs, and the sound moves as soon as you choose one. The
+  panel shows what the output supports: speakers, whether the game plays in
+  5.1 or stereo there, spatial sound, and Dolby and DTS decoding.
+- **Choose which monitor the game is on.** Settings > Preferences > Display
+  moves the game to another monitor straight away. The panel shows the
+  monitor's resolution, fastest refresh rate and HDR support.
+- Guide fixes on 4K screens: radio buttons are sharp, the letters on the
+  A and B buttons are centred, and the thin white line above the Guide is
+  gone.
+- The Games & Apps menu scrolls, so its last entries are reachable.
+- A damaged disc image or game file is refused instead of crashing the
+  game.
+
+### Known issues
+
+- Short stutters the first time new effects appear, while their shaders are
+  prepared. They don't come back on later runs.
+- Only tested on NVIDIA GPUs so far.
+- Online multiplayer isn't included.
+- Title updates are listed in the Guide but can't be applied yet.
+
 ## [0.1.0-alpha.1] - 2026-10-09
 
 First public alpha. Expect bugs; your saves are kept outside the game folder,
