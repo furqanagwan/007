@@ -15,6 +15,10 @@
 /scripts/*
 !/scripts/Launch-007.ps1
 !/scripts/Publish-Release.ps1
+!/scripts/check_repository.py
+!/scripts/tests/
+/scripts/tests/*
+!/scripts/tests/test_check_repository.py
 !/docs/RG-007-001.md
 !/docs/RG-007-002.md
 !/docs/RG-007-003.md
