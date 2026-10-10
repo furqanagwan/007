@@ -245,7 +245,7 @@ $sums = Join-Path $workRoot 'SHA256SUMS.txt'
 $assets | ForEach-Object { '{0}  {1}' -f (Get-FileHash -Algorithm SHA256 $_).Hash.ToLowerInvariant(), (Split-Path $_ -Leaf) } |
     Set-Content -Encoding ascii $sums
 $notesFile = Join-Path $workRoot 'release-notes.md'
-Set-Content -Encoding utf8 $notesFile $notes
+[System.IO.File]::WriteAllText($notesFile, $notes, (New-Object System.Text.UTF8Encoding $false))
 
 $smokeResults
 Get-Content $sums
