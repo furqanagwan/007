@@ -5,6 +5,35 @@ All notable changes to the 007 releases. The format follows
 [Semantic Versioning](https://semver.org): `0.x.y-alpha.N` while the games
 are in alpha.
 
+## [0.1.0-alpha.3] - 2026-10-11
+
+### All games
+
+- **Update notification.** When a newer release is out, a notification says
+  so once, the way the console announces things. Get it from Games & Apps >
+  Game Update in the Guide.
+- **Clearer messages.** The Guide and the first-run disc picker now use plain
+  wording, without technical details.
+- Guide fix: a long button label (like "Check Again") no longer runs into the
+  "B Back" label next to it.
+- Graphics fixes from Xenia, mostly for other Xbox 360 games built with the
+  same tools:
+  - tiled frames (predicated tiling) line up with their depth, which fixes
+    missing or corrupted shading in the bottom tile;
+  - a tile drawn partly off screen renders correctly;
+  - 1-bit mask textures read in the right bit order, and the resolve that
+    builds them is supported.
+- New setting `xenos_sample_positions` (off by default): draw 2x and 4x
+  multisampling at the console's own sample positions.
+
+### Known issues
+
+- Short stutters the first time new effects appear, while their shaders are
+  prepared. They don't come back on later runs.
+- Only tested on NVIDIA GPUs so far.
+- Online multiplayer isn't included.
+- Title updates are listed in the Guide but can't be applied yet.
+
 ## [0.1.0-alpha.2] - 2026-10-10
 
 ### All games
